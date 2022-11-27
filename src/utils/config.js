@@ -1,1 +1,1 @@
-export const rootURL = 'http://hitta.test';
+export const rootURL = 'http://35.207.169.147';

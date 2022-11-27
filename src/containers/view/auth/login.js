@@ -1,9 +1,10 @@
 import React from 'react'
 import LayoutAuth from '../../layout/auth';
-const Login = () => {
+import LoginFrom from '../../../components/LoginForm'
+const Login = (props) => {
   return (
    <LayoutAuth> 
-      <div>login</div>
+      <LoginFrom {...props}/>
    </LayoutAuth>
   )
 }

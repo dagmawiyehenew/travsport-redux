@@ -1,9 +1,10 @@
-import React from 'react'
-import LayoutMain from '../../layout/main'
-const Results = () => {
+import React from 'react';
+import LayoutMain from '../../layout/main';
+import { ResultsTable } from '../../../components/tables';
+const Results = (props) => {
   return (
     <LayoutMain>
-        <div>results</div>
+        <ResultsTable {...props} />
     </LayoutMain>
   )
 }
