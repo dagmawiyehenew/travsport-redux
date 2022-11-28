@@ -13,13 +13,12 @@ function LayoutMain({ children }) {
     "keypress",
   ];
 
-  
   let userSession; // user session timer will be stored
   let history = useNavigate(); // user path to navigate the user
 
   useEffect(() => {
     // if user action not involves one of the events we specified we take as inactive user
-    // Te user will be logged out  
+    // Te user will be logged out
     Object.values(events).forEach((event) => {
       window.addEventListener(event, () => {
         resetSession();
@@ -41,7 +40,7 @@ function LayoutMain({ children }) {
         window.addEventListener(event, resetSession);
       });
       logoutUser(); // logout user
-    }, 1000);
+    }, 5 * 60 * 1000);
   };
 
   const logoutUser = () => {
@@ -49,7 +48,7 @@ function LayoutMain({ children }) {
     localStorage.clear();
     history("/login");
   };
-  
+
   return <Fragment>{children}</Fragment>;
 }
 
