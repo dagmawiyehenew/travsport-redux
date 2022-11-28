@@ -1,6 +1,6 @@
 import React from 'react'
 import LayoutAuth from '../../layout/auth';
-import LoginFrom from '../../../components/LoginForm'
+import LoginFrom from '../../../components/loginForm'
 const Login = (props) => {
   return (
    <LayoutAuth> 
