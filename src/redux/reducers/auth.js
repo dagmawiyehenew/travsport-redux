@@ -3,8 +3,7 @@ import { SET_CURRENT_USER } from "./messageTypes";
 
 const initialState = {
   isAuthenticated: false,
-  token: {},
-  credential: {},
+  user: {}
 };
 
 export default (state = initialState, action = {}) => {
@@ -12,8 +11,8 @@ export default (state = initialState, action = {}) => {
     case SET_CURRENT_USER:
       return {
         ...state,
-        isAuthenticated: !isEmpty(action.token),
-        token: action.token,
+        isAuthenticated: !isEmpty(action.user),
+        user: action.user,
       };
     default:
       return state;

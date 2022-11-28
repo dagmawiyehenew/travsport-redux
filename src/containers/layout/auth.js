@@ -1,11 +1,12 @@
 import React from 'react';
-
-const LayoutAuth = ({children}) =>{
-    return(
-        <>
-        {children}
-        </>
-    );
+function LayoutAuth({children}) {
+   
+        return (
+            <div>
+                {children}
+            </div>
+        );
+    
 }
 
 export default LayoutAuth;

@@ -17,13 +17,17 @@ const LoginForm = (props) => {
   };
 
   const onSubmit = async (values) => {
-    console.log(values);
+
+    const response = await props.loginUser(values);
+    console.log(response);
   };
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  console.log(props);
 
   return !Loadning ? (
     "Loading"
@@ -41,19 +45,19 @@ const LoginForm = (props) => {
           <Field
             type="email"
             name="email"
-            id="inputemail"
+            id="inputEmail"
             autoComplete="off"
             className="form-control"
-            title="from email"
+            title="Email"
           />
           {errors.email && touched.email ? <div>{errors.email}</div> : null}
 
           <Field
             type="password"
             name="password"
-            id="inputpassword"
+            id="inputPassword"
             className="form-control"
-            title=" from password"
+            title="Password"
           />
           {errors.email && touched.password ? (
             <div>{errors.password}</div>
