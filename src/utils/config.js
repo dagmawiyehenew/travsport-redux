@@ -1,1 +1,0 @@
-export const rootURL = 'http://35.207.169.147';

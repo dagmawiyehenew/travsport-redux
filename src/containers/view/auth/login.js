@@ -4,8 +4,8 @@ import LoginFrom from '../../../components/loginForm'
 import { connect } from 'react-redux';
 
 /***
- * expeted props from redusx 
- *  - credential : user login information. store this for refrash token
+ * experted props from redux 
+ *  - credential : user login information. store this for refresh token
  *  - isAuthenticated : verify if user logged in or not
  *  - token : user token 
  */
@@ -24,6 +24,6 @@ function mapStateToProps(state) {
 };
 
 export default connect(mapStateToProps,{
-  loginUser,
+  loginUser
 }  
 )(Login);

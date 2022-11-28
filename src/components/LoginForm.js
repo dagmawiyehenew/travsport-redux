@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { rootURL } from "../utils/config";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 const LoginForm = (props) => {
@@ -17,13 +16,13 @@ const LoginForm = (props) => {
   };
 
   const onSubmit = async (values) => {
-
     const response = await props.loginUser(values);
     console.log(response);
   };
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 1000);
+
     return () => clearTimeout(timer);
   }, []);
 
