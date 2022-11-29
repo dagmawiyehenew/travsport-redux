@@ -1,8 +1,23 @@
+import React, { useEffect } from "react";
 
-import React from "react";
+export const ResultsTable = (props) => {
+  const fetchData = async () => {
+    const data = await props.getResults();
+    console.log(data.result);
+  };
 
-export const ResultsTable = () => {
-    return(
-        <><h1>table</h1></>
-    )
-}
+  useEffect(() => {
+    let interval = setInterval(() => {
+      // fetchData();
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  return (
+    <>
+      <h1>table</h1>
+    </>
+  );
+};
