@@ -15,6 +15,8 @@ import rootReducer from "./redux/root";
 
 import setAuthorizationToken from "./utils/setAuthorizationToken";
 import { auth } from "./actions/authenticate";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const store = createStore(
   rootReducer,
