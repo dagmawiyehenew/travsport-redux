@@ -3,7 +3,7 @@ import { SET_CURRENT_RACE } from "./messageTypes";
 
 const initialState = {
    _new: false,
-   _result :[]
+   _result :[] //{}
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         _new: !isEmpty(action.result),
-        _result: _result,
+        _result:  _result, //action.result
       };
     default:
       return state;
