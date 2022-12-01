@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import Header from "../../common/header";
 import { useNavigate } from "react-router-dom";
-
+import { MDBContainer } from "mdb-react-ui-kit";
 function LayoutMain({ children }) {
   // events expected from user
   const events = [
@@ -49,7 +49,13 @@ function LayoutMain({ children }) {
     history("/login");
   };
 
-  return <Fragment>{children}</Fragment>;
+  return (
+    <MDBContainer fluid >
+    <Header logoutUser={logoutUser}/>
+    <MDBContainer className="mt-5"> <Fragment>{children}</Fragment></MDBContainer>
+   
+    </MDBContainer>
+  );
 }
 
 export default LayoutMain;
