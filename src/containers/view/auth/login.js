@@ -1,6 +1,6 @@
 import React from 'react'
 import LayoutAuth from '../../layout/auth';
-import LoginFrom from '../../../components/loginForm'
+import LoginFrom from '../../../components/LoginForm'
 import { connect } from 'react-redux';
 import {loginUser} from '../../../actions/authenticate';
 const Login = (props) => {

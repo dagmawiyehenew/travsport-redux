@@ -11,13 +11,15 @@ const LoginForm = (props) => {
   });
 
   const initialValues = {
-    email: "",
-    password: "",
+    email: "dagmawi@screenwork.se",
+    password: "lTgAYaLP9jRs",
   };
 
   const onSubmit = async (values) => {
-    const response = await props.loginUser(values);
-    console.log(response);
+    await props.loginUser(values).then((res)=> {
+        console.log(res);
+    });
+   
   };
 
   useEffect(() => {
@@ -48,6 +50,7 @@ const LoginForm = (props) => {
             autoComplete="off"
             className="form-control"
             title="Email"
+            value={initialValues.email}
           />
           {errors.email && touched.email ? <div>{errors.email}</div> : null}
 
@@ -57,6 +60,7 @@ const LoginForm = (props) => {
             id="inputPassword"
             className="form-control"
             title="Password"
+            value={initialValues.password}
           />
           {errors.email && touched.password ? (
             <div>{errors.password}</div>

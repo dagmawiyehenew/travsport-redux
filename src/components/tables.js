@@ -6,6 +6,7 @@ export const ResultsTable = (props) => {
     console.log(data.result);
   };
 
+  console.log(props)
   useEffect(() => {
     let interval = setInterval(() => {
       // fetchData();
