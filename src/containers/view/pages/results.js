@@ -3,7 +3,7 @@ import LayoutMain from '../../layout/main';
 import { ResultsTable } from '../../../components/tables';
 
 import { connect } from 'react-redux';
-import {logoutUser} from '../../../actions/authenticate';
+import {logoutUser, loginUser} from '../../../actions/authenticate';
 import {getResults} from '../../../actions/results';
 const Results = (props) => {
   return (
@@ -22,6 +22,7 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps,{
   logoutUser,
+  loginUser,
   getResults
 }  
 )(Results);

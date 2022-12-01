@@ -2,17 +2,23 @@ import React, { useEffect } from "react";
 
 export const ResultsTable = (props) => {
   const fetchData = async () => {
-    const data = await props.getResults();
-    console.log(data.result);
+    await props.getResults().then((data) => {
+        if(data.code === 'ERR_BAD_REQUEST') props.loginUser(JSON.parse(localStorage.getItem('credential')));
+
+        console.log(data);
+
+    }).catch((error) => {
+      console.log(error);
+    });
   };
 
-  console.log(props)
+  console.log(props.race._result)
   useEffect(() => {
-    let interval = setInterval(() => {
-      // fetchData();
-    }, 1000);
+    //let interval = setInterval(() => {
+       fetchData();
+    //}, 1000);
     return () => {
-      clearInterval(interval);
+      //clearInterval(interval);
     };
   }, []);
 

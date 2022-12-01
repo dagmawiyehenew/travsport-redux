@@ -1,5 +1,5 @@
 import { SET_CURRENT_RACE } from "../redux/reducers/messageTypes";
-
+import axios from 'axios';
 export function newRace(result) {
   return {
     type: SET_CURRENT_RACE,
@@ -7,13 +7,25 @@ export function newRace(result) {
   };
 }
 
-export function getResults() {
+export function getResults(error) {
   try {
     const response = async (dispatch, getState) => {
-      const data = {
-        result: "f47z9AsawvxBBDj1E7g2sNa6dLjp6dkNNfU3qm0quyntGbIhQ7mu5MwiKGoxT9HI",
-      };
-      return await dispatch(newRace(data));
+      return await axios.get('/results').then((response)=>{
+          if(!response.error){
+            dispatch(newRace(response.data));
+            return response;
+          }
+      }).catch((error) => {
+          switch (error.status) {
+            case 401:
+              error = {code: 'EXPIRED_SESSION'}
+              break;
+          
+            default:
+              break;
+          }
+          return error;
+      })
     };
 
     return response;
@@ -24,3 +36,4 @@ export function getResults() {
     console.log(error.response);
   }
 }
+
