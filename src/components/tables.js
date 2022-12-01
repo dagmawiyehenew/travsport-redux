@@ -12,19 +12,24 @@ export const ResultsTable = (props) => {
     });
   };
 
+  const {_result} = props.race;
   console.log(props.race._result)
   useEffect(() => {
-    //let interval = setInterval(() => {
+    let interval = setInterval(() => {
        fetchData();
-    //}, 1000);
+    }, 15000);
     return () => {
-      //clearInterval(interval);
+      clearInterval(interval);
     };
   }, []);
 
   return (
     <>
-      <h1>table</h1>
+       {
+        _result.map((item, i) => {
+            return <li key={i}>{item.horse.id} {item.event} {item.horse.name} {item.time}</li>
+        })
+       }
     </>
   );
 };

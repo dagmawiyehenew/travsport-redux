@@ -10,6 +10,8 @@ export function newRace(result) {
 export function getResults(error) {
   try {
     const response = async (dispatch, getState) => {
+      let result = getState().race;
+
       return await axios.get('/results').then((response)=>{
           if(!response.error){
             dispatch(newRace(response.data));
